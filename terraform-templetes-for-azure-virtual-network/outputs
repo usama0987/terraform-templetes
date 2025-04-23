@@ -1,1 +1,20 @@
+output "resource_groups" {
+  description = "Map of resource group names and their locations."
+  value = {
+    for rg_key, rg in azurerm_resource_group.network : rg_key => rg.location
+  }
+}
 
+output "vnet_names" {
+  description = "Map of VNet names and their IDs."
+  value = {
+    for vnet_key, vnet in azurerm_virtual_network.vnet : vnet_key => vnet.id
+  }
+}
+
+output "subnet_names" {
+  description = "Map of subnet names and their IDs."
+  value = {
+    for subnet_key, subnet in azurerm_subnet.subnet : subnet_key => subnet.id
+  }
+}
