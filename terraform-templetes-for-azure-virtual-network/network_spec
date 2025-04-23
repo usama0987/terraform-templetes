@@ -1,0 +1,20 @@
+locals {
+  network_spec = {
+    "vnet-prod-eastus" = {
+      location      = "East US"
+      address_space = ["10.0.0.0/16"]
+      subnets = [
+        { name_suffix = "frontend", address_prefix = "10.0.1.0/24" },
+        { name_suffix = "backend", address_prefix = "10.0.2.0/24" }
+      ]
+    },
+    "vnet-dev-westus" = {
+      location      = "West US"
+      address_space = ["192.168.0.0/16"]
+      subnets = [
+        { name_suffix = "frontend", address_prefix = "192.168.1.0/24" },
+        { name_suffix = "backend", address_prefix = "192.168.2.0/24" }
+      ]
+    }
+  }
+}
